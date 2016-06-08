@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:ng="http://angularjs.org" ng-app="servicesApp">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Compare Between Uber, Careem, Ousta. Add your surge rate to see which one is cheaper, sort by preferences.">
+  <meta property="og:title" content="Compare Between Car Services in Egypt">
+  <meta property="og:image" content="http://www.pixhoster.info/f/2016-06/53ca8c40b0c0e2266151e8a2cdc9f7bb.png">
+  <meta property="og:url" content="http://carcompare.remonka.ml/">
+  <meta property="og:description" content="Compare Between Uber, Careem, Ousta. Add your surge rate to see which one is cheaper, sort by preferences.">
+  <meta name="twitter:site" content="@harryremon">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classie/1.0.1/classie.min.js"></script>
+  <script src="js/actions.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+  <script src="/node_modules/angular/angular.js"></script>
+  <script src="/scripts/functions.js"></script>
+  <title>Car Compare</title>
+  <link href="css/bootstrap.min.css" rel="stylesheet">
+  <link href="css/extrastyles.css" rel="stylesheet">
+  <link href="css/animate.css" rel="stylesheet">
+</head>
+
+<body>
+  <header>
+    <div class="ribbon-wrapper">
+      <div class="ribbon">BETA</div>
+    </div>
+    <div>
+      <h1 id="title" class="text-center">Taxi Services in Egypt</h1>
+      <hr/>
+    </div>
+  </header>
+  <div id="content" class="container-narrow" ng-controller="mainController">
+    <p class="sortbylabel">Sort:</p>
+    <div class="sort-buttons">
+      <button class="btn btn-primary btn-lg" ng-click="sortBy('start')">Default</button>
+      <button class="btn btn-primary btn-lg" ng-click="sortBy('km')">Kilometre</button>
+      <button class="btn btn-primary btn-lg" ng-click="sortBy('min')">Minute</button>
+      <button class="btn btn-primary btn-lg" ng-click="sortBy('avail')">Availability</button>
+      <!--<button ng-click="sortBy('name')">Sample Trip</button>-->
+    </div>
+    <br/>
+    <div class="surge-button">
+      <button class="btn btn-info btn-lg" data-toggle="modal" data-target="#surgeModal">Set Surge Rates</button>
+    </div>
+    <!-- Modal -->
+    <div class="modal fade" id="surgeModal" role="dialog">
+      <div class="modal-dialog modal-md">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h4 class="modal-title">Set Surge</h4>
+          </div>
+          <div class="modal-body">
+            <p class="modal-surge-label">UberX:</p>
+            <input class="form-control" type="number" data-ng-model="uberxSurge"></input>
+            <br/>
+            <p class="modal-surge-label">UberSelect:</p>
+            <input class="form-control" type="number" data-ng-model="uberSelectSurge"></input>
+            <br/>
+            <p class="modal-surge-label">Careem Economy:</p>
+            <input class="form-control" type="number" data-ng-model="careemSurge"></input>
+            <br/>
+            <p class="modal-surge-label">Careem Business:</p>
+            <input class="form-control" type="number" data-ng-model="careemBusinessSurge"></input>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="setSurge()">Save</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Modal End -->
+    <br/>
+    <div class="service-item animated" ng-repeat="service in serviceList | orderBy:propertyName:reverse">
+      <img class="col-xs-2 col-md-4 service-logo" ng-src="{{service.img}}" alt="">
+      <p class="service-name">{{service.name}}</p>
+      <div class="col-md-6">
+        <p class="service-start">Start at: <b>{{service.start}}</b> EGP</p>
+        <p class="service-km">KM Price: <b>{{service.km}}</b> EGP</p>
+        <p class="service-minute">Minute Price: <b>{{service.min}}</b> EGP</p>
+      </div>
+      <div class="service-avail">
+        <p class="service-avail-label">Availability:</p>
+        <div class="progress">
+          <div class="progress-bar" role="progressbar" aria-valuenow="{{service.avail}}" aria-valuemin="0" aria-valuemax="100" style="width:{{service.avail}}%">
+          </div>
+        </div>
+      </div>
+    </div>
+    <footer>
+      <p style="text-align: center;">Developed by <a target="_blank" href="http://remonka.ml">Remon Kamel</a></p>
+    </footer>
+</body>
+
+</html>

@@ -1,0 +1,171 @@
+@import url(https://fonts.googleapis.com/css?family=Ubuntu:500);
+body{
+    background: #F8F8FF;
+}
+header,
+header h1#title,
+.service-logo,
+.ribbon-wrapper,
+.ribbon{
+    -webkit-transition: all 0.3s;
+    -moz-transition: all 0.3s;
+    -ms-transition: all 0.3s;
+    -o-transition: all 0.3s;
+    transition: all 0.3s;
+}
+
+header{
+    width: 100%;
+    min-height: 100px;
+    height: 9vw;
+    overflow: hidden;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 999;
+    background: #F8F8FF;
+}
+
+header hr{
+    margin-bottom: 0px;
+    position: absolute;
+    width: 100%;
+    bottom: 0;
+}
+
+header h1#title{
+    font-family: 'Ubuntu', sans-serif;
+    font-size: calc(18px + 4vw);
+}
+
+header.smaller {
+    min-height: 60px;
+    height: 5vw;
+}
+
+header.smaller h1#title {
+    font-size: calc(12px + 1vw);
+}
+
+.container-narrow{
+    margin: 0 auto;
+    padding-top: 130px;
+    max-width: 1000px;
+    min-width: 200px;
+}
+
+.service-item{
+    box-sizing: border-box;
+    margin-bottom: 100px;
+    line-height: 1.6;
+}
+
+.service-logo{
+    position: relative;
+    display: block;
+    max-width:230px;
+    max-height:300px;
+    width: auto;
+    height: auto;
+}
+
+.service-name{
+    font-family: 'Ubuntu', sans-serif;
+    font-size: 40px;
+}
+
+.modal-surge-label,
+.service-start,
+.service-km,
+.service-minute,
+.service-avail-label{
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-size: 22px;
+}
+
+.service-avail{
+    padding-right: 20px;
+    padding-left: 15px;
+}
+
+.sortbylabel{
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-size: 20px;
+    text-align: center;
+}
+
+.sort-buttons{
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-around;
+}
+
+.btn{
+    margin-bottom: 5px;
+}
+
+.surge-button{
+  display: flex;
+  align-items: center;
+  justify-content: center
+}
+
+.modal-title{
+    font-family: 'Ubuntu', sans-serif;
+    font-size: 35px;
+}
+
+.ribbon-wrapper{
+    width: 85px;
+    height: 88px;
+    overflow: hidden;
+    position: absolute;
+    top: -3px;
+    left: -3px;
+}
+
+.ribbon{
+    font: bold 15px Sans-Serif;
+    color: #F8F8FF;
+    text-align: center;
+    -webkit-transform: rotate(-45deg);
+    -moz-transform: rotate(-45deg);
+    -ms-transform: rotate(-45deg);
+    -o-transform: rotate(-45deg);
+    transform: rotate(-45deg);
+    position: relative;
+    padding: 7px 0;
+    right: 30px;
+    top: 15px;
+    width: 120px;
+    background-color: cadetblue;
+    letter-spacing: 1px;
+}
+
+@media all and (max-width: 600px){
+    .service-item{
+        margin-top: 20px;
+    }
+    .service-logo{
+    max-width:100px;
+    max-height:130px;
+    }
+    .service-name{
+        font-size: 30px;
+        padding-top: 5px;
+        padding-bottom: 15px;
+    }
+
+    .ribbon{
+    font-size: 11px;
+    }
+}
+
+@media all and (min-width: 1550px){
+    .container-narrow{
+    margin: 0 auto;
+    padding-top: 9.5vw;
+    max-width: 1000px;
+    min-width: 200px;
+    }
+}
