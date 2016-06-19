@@ -45,8 +45,9 @@
     <br/>
     <div class="surge-button">
       <button class="btn btn-info btn-lg" data-toggle="modal" data-target="#surgeModal">Set Surge Rates</button>
+      <button class="btn btn-info btn-lg" data-toggle="modal" data-target="#estimateModal" onclick="getLocation()">Get Estimates</button>
     </div>
-    <!-- Modal -->
+    <!-- Surge Modal -->
     <div class="modal fade" id="surgeModal" role="dialog">
       <div class="modal-dialog modal-md">
         <div class="modal-content">
@@ -72,7 +73,37 @@
         </div>
       </div>
     </div>
-    <!-- Modal End -->
+    <!-- Surge Modal End -->
+    <!-- Estimate Time Modal -->
+    <div class="modal fade" id="estimateModal" role="dialog">
+      <div class="modal-dialog modal-md">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h4 class="modal-title">Set Surge</h4>
+          </div>
+          <div class="modal-body">
+            <div id="map-overlay">
+              <iframe id="map" frameborder="0" style="border:0" allowfullscreen=false>
+              </iframe>
+              <div class="overlay"></div>
+            </div>
+            <div class="checkbox">
+              <label><input type="checkbox" value="">Use Current Location</label>
+            </div>
+            <br/>
+            <p class="modal-surge-label">Pick Up Location:</p>
+            <input class="form-control" type="text" data-ng-model="uberxSurge"></input>
+            <br/>
+            <p class="modal-surge-label">Drop Off Location:</p>
+            <input class="form-control" type="text" data-ng-model="uberSelectSurge"></input>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="setSurge()">Save</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Estimate Time Modal End -->
     <br/>
     <div class="service-item animated" ng-repeat="service in serviceList | orderBy:propertyName:reverse">
       <img class="col-xs-2 col-md-4 service-logo" ng-src="{{service.img}}" alt="">

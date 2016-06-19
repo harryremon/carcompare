@@ -12,4 +12,14 @@ function init() {
         }
     });
 }
+function getLocation() {
+    if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(loadmap);
+    }
+}
+function loadmap(position){
+    var currposition = position.coords.latitude - 0.001;
+    var src = "https://www.google.com/maps/embed/v1/view?key=AIzaSyCJSZ4mboQy9jxlEfM3ucqlAtgqkdMHZgs&center="+currposition+","+position.coords.longitude+"&zoom=16&maptype=roadmap"
+    document.getElementById("map").src = src; 
+}
 window.onload = init();
