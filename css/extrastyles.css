@@ -2,6 +2,9 @@
 body{
     background: #F8F8FF;
 }
+.btn-info{
+  margin-right: 10px;
+}
 #map-overlay{
     position: relative;
     overflow: auto;
